@@ -7,7 +7,7 @@ export default {
     const url = new URL(request.url);
     const path = url.pathname;
     const method = request.method;
-    const synapse = new Synapse({ apiKey: env.SYNAPSE_API_KEY, workspaceId: env.SYNAPSE_WORKSPACE_ID });
+    const synapse = new Synapse({ baseUrl: env.SYNAPSE_API_URL || "https://synapse-api.pyrx.tech", apiKey: env.SYNAPSE_API_KEY, workspaceId: env.SYNAPSE_WORKSPACE_ID });
     const json = method === 'POST' || method === 'PUT' ? await request.json() as any : null;
 
     // Core
