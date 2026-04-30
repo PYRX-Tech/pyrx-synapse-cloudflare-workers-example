@@ -1,6 +1,6 @@
 import { Synapse } from '@pyrx/synapse';
 
-interface Env { SYNAPSE_API_KEY: string; SYNAPSE_WORKSPACE_ID: string; }
+interface Env { SYNAPSE_API_KEY: string; SYNAPSE_WORKSPACE_ID: string; SYNAPSE_API_URL?: string; }
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
