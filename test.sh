@@ -7,8 +7,8 @@ BASE_URL="http://localhost:4009"
 echo "Installing..."
 npm install > /dev/null 2>&1
 
-echo "Starting Wrangler dev on port 4009..."
-SYNAPSE_API_KEY="$SYNAPSE_API_KEY" SYNAPSE_WORKSPACE_ID="$SYNAPSE_WORKSPACE_ID" npx wrangler dev --port 4009 > /dev/null 2>&1 &
+echo "Starting local CF Worker test server on port 4009..."
+npx tsx _test-server.mjs > /dev/null 2>&1 &
 SERVER_PID=$!
 trap "kill $SERVER_PID 2>/dev/null; wait $SERVER_PID 2>/dev/null" EXIT
 
